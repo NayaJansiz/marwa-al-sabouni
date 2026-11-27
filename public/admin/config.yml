@@ -20,7 +20,6 @@ collections:
     fields:
       - { label: Title (English), name: title, widget: string }
       - { label: Title (Arabic), name: title_ar, widget: string, required: false }
-      - { label: Slug, name: slug, widget: string }
       - { label: Year, name: year, widget: string, required: false }
       - { label: Location, name: location, widget: string, required: false }
       - { label: Location (Arabic), name: location_ar, widget: string, required: false }
@@ -32,7 +31,6 @@ collections:
       - { label: Drawings and documents, name: documents, widget: list, field: { label: File, name: file, widget: file }, required: false }
       - { label: External link, name: external_url, widget: string, required: false }
       - { label: Featured, name: featured, widget: boolean, default: false }
-      - { label: Draft, name: draft, widget: boolean, default: true }
 
   - name: books
     label: Books
