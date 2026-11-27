@@ -1,5 +1,14 @@
 ---
 import SiteLayout from "../layouts/SiteLayout.astro";
+
+interface Props {
+  lang?: string;
+  title: string;
+  eyebrow: string;
+  intro: string;
+  groups?: string[];
+}
+
 const { lang = "en", title, eyebrow, intro, groups = [] } = Astro.props;
 const ar = lang === "ar";
 ---
