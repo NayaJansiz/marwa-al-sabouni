@@ -1,0 +1,19 @@
+---
+import SiteLayout from "../layouts/SiteLayout.astro";
+const { lang = "en", title, eyebrow, intro, groups = [] } = Astro.props;
+const ar = lang === "ar";
+---
+<SiteLayout lang={lang} title={`${title} — Marwa Al-Sabouni`} description={intro}>
+  <section class="section" style="min-height:70vh;padding-top:9vh">
+    <p class="eyebrow">{eyebrow}</p>
+    <h1 style="font:400 clamp(48px,8vw,104px)/1.05 var(--serif);margin:24px 0 30px;letter-spacing:-.04em">{title}</h1>
+    <p style="max-width:680px;color:var(--muted);font-size:15px;line-height:2;margin-bottom:58px">{intro}</p>
+    <div style="border-top:1px solid var(--line)">
+      {groups.map((group) => <div style="padding:28px 0;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap">
+        <h2 style="font:400 28px var(--serif);margin:0">{group}</h2>
+        <span style="font-size:11px;color:var(--muted)">{ar ? "سيُضاف المحتوى المعتمد هنا" : "Approved content will appear here"}</span>
+      </div>)}
+    </div>
+    <p style="margin-top:42px;color:var(--muted);font-size:12px;line-height:1.8">{ar ? "هذه بنية أولية للتصميم. لن تُنشر أي معلومات أو أعمال غير مؤكدة." : "This is the initial page structure. No unverified biography or work is being presented as fact."}</p>
+  </section>
+</SiteLayout>
