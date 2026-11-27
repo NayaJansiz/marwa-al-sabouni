@@ -1,0 +1,136 @@
+# yaml-language-server: $schema=https://unpkg.com/@sveltia/cms/schema/sveltia-cms.json
+backend:
+  name: github
+  repo: NayaJansiz/marwa-al-sabouni
+  branch: feat/portfolio-foundation
+
+media_folder: /public/uploads
+public_folder: /uploads
+
+publish_mode: editorial_workflow
+
+collections:
+  - name: projects
+    label: Projects
+    label_singular: Project
+    folder: src/content/projects
+    create: true
+    slug: "{{slug}}"
+    summary: "{{title}} · {{year}}"
+    fields:
+      - { label: Title (English), name: title, widget: string }
+      - { label: Title (Arabic), name: title_ar, widget: string, required: false }
+      - { label: Slug, name: slug, widget: string }
+      - { label: Year, name: year, widget: string, required: false }
+      - { label: Location, name: location, widget: string, required: false }
+      - { label: Location (Arabic), name: location_ar, widget: string, required: false }
+      - { label: Category, name: category, widget: string, required: false }
+      - { label: Summary (English), name: summary, widget: text, required: false }
+      - { label: Summary (Arabic), name: summary_ar, widget: text, required: false }
+      - { label: Cover image, name: cover, widget: image }
+      - { label: Gallery, name: gallery, widget: list, field: { label: Image, name: image, widget: image }, required: false }
+      - { label: Drawings and documents, name: documents, widget: list, field: { label: File, name: file, widget: file }, required: false }
+      - { label: External link, name: external_url, widget: string, required: false }
+      - { label: Featured, name: featured, widget: boolean, default: false }
+      - { label: Draft, name: draft, widget: boolean, default: true }
+
+  - name: books
+    label: Books
+    label_singular: Book
+    folder: src/content/books
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: Title (English), name: title, widget: string }
+      - { label: Title (Arabic), name: title_ar, widget: string, required: false }
+      - { label: Subtitle, name: subtitle, widget: string, required: false }
+      - { label: Publisher, name: publisher, widget: string, required: false }
+      - { label: Publication date, name: date, widget: datetime, type: date, required: false }
+      - { label: ISBN, name: isbn, widget: string, required: false }
+      - { label: Synopsis (English), name: synopsis, widget: text, required: false }
+      - { label: Synopsis (Arabic), name: synopsis_ar, widget: text, required: false }
+      - { label: Cover, name: cover, widget: image, required: false }
+      - { label: Language(s), name: languages, widget: list, field: { label: Language, name: language, widget: string }, required: false }
+      - { label: Purchase links, name: purchase_links, widget: list, field: { label: URL, name: url, widget: string }, required: false }
+      - { label: Featured, name: featured, widget: boolean, default: false }
+      - { label: Draft, name: draft, widget: boolean, default: true }
+
+  - name: articles
+    label: Articles
+    label_singular: Article
+    folder: src/content/articles
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: Title (English), name: title, widget: string }
+      - { label: Title (Arabic), name: title_ar, widget: string, required: false }
+      - { label: Publication, name: publication, widget: string, required: false }
+      - { label: Date, name: date, widget: datetime, type: date, required: false }
+      - { label: Excerpt (English), name: excerpt, widget: text, required: false }
+      - { label: Excerpt (Arabic), name: excerpt_ar, widget: text, required: false }
+      - { label: Thumbnail, name: thumbnail, widget: image, required: false }
+      - { label: Original URL, name: url, widget: string, required: false }
+      - { label: PDF, name: pdf, widget: file, required: false }
+      - { label: Featured, name: featured, widget: boolean, default: false }
+      - { label: Draft, name: draft, widget: boolean, default: true }
+
+  - name: talks
+    label: Talks & Participations
+    label_singular: Talk
+    folder: src/content/talks
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: Title (English), name: title, widget: string }
+      - { label: Title (Arabic), name: title_ar, widget: string, required: false }
+      - { label: Date and time, name: date, widget: datetime }
+      - { label: Location, name: location, widget: string, required: false }
+      - { label: Location (Arabic), name: location_ar, widget: string, required: false }
+      - { label: Organizer, name: organizer, widget: string, required: false }
+      - { label: Description (English), name: description, widget: text, required: false }
+      - { label: Description (Arabic), name: description_ar, widget: text, required: false }
+      - { label: Image, name: image, widget: image, required: false }
+      - { label: Video URL, name: video_url, widget: string, required: false }
+      - { label: Registration URL, name: registration_url, widget: string, required: false }
+      - { label: Presentation PDF, name: presentation, widget: file, required: false }
+      - { label: Featured, name: featured, widget: boolean, default: false }
+      - { label: Draft, name: draft, widget: boolean, default: true }
+
+  - name: interviews
+    label: Interviews
+    label_singular: Interview
+    folder: src/content/interviews
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: Title (English), name: title, widget: string }
+      - { label: Title (Arabic), name: title_ar, widget: string, required: false }
+      - { label: Media outlet, name: outlet, widget: string, required: false }
+      - { label: Journalist, name: journalist, widget: string, required: false }
+      - { label: Date, name: date, widget: datetime, type: date, required: false }
+      - { label: Format, name: format, widget: select, options: [Article, Video, Audio, Podcast], default: Article }
+      - { label: Thumbnail, name: thumbnail, widget: image, required: false }
+      - { label: Media URL, name: url, widget: string, required: false }
+      - { label: Summary (English), name: summary, widget: text, required: false }
+      - { label: Summary (Arabic), name: summary_ar, widget: text, required: false }
+      - { label: Featured, name: featured, widget: boolean, default: false }
+      - { label: Draft, name: draft, widget: boolean, default: true }
+
+  - name: reviews
+    label: Reviews & Press
+    label_singular: Review
+    folder: src/content/reviews
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: Title (English), name: title, widget: string }
+      - { label: Title (Arabic), name: title_ar, widget: string, required: false }
+      - { label: Reviewer, name: reviewer, widget: string, required: false }
+      - { label: Publication, name: publication, widget: string, required: false }
+      - { label: Date, name: date, widget: datetime, type: date, required: false }
+      - { label: Excerpt (English), name: excerpt, widget: text, required: false }
+      - { label: Excerpt (Arabic), name: excerpt_ar, widget: text, required: false }
+      - { label: Image, name: image, widget: image, required: false }
+      - { label: Source URL, name: url, widget: string, required: false }
+      - { label: Featured, name: featured, widget: boolean, default: false }
+      - { label: Draft, name: draft, widget: boolean, default: true }
