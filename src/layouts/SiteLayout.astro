@@ -1,0 +1,39 @@
+---
+import "../styles/global.css";
+const { title = "Marwa Al-Sabouni", description = "Architect, author and researcher.", lang = "en" } = Astro.props;
+const isArabic = lang === "ar";
+---
+<!doctype html>
+<html lang={lang} dir={isArabic ? "rtl" : "ltr"}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#f5f2eb" />
+    <title>{title}</title>
+  </head>
+  <body>
+    <div class="site-shell">
+      <header class="site-header">
+        <a class="wordmark" href={isArabic ? "/ar/" : "/"}>Marwa Al-Sabouni</a>
+        <nav class="nav-links" aria-label={isArabic ? "التنقل الرئيسي" : "Main navigation"}>
+          {isArabic ? (
+            <>
+              <a href="/ar/projects/">المشاريع</a><a href="/ar/publications/">المنشورات</a><a href="/ar/participations/">المشاركات</a><a href="/ar/publicity/">الإعلام</a><a href="/ar/about/">عن مروة</a><a href="/ar/contact/">تواصل</a>
+            </>
+          ) : (
+            <>
+              <a href="/projects/">Projects</a><a href="/publications/">Publications</a><a href="/participations/">Participations</a><a href="/publicity/">Publicity</a><a href="/about/">About</a><a href="/contact/">Contact</a>
+            </>
+          )}
+        </nav>
+        <a class="language-switch" href={isArabic ? "/" : "/ar/"} aria-label={isArabic ? "Switch to English" : "التبديل إلى العربية"}>{isArabic ? "EN" : "عربي"}</a>
+      </header>
+      <main><slot /></main>
+      <footer class="site-footer">
+        <span>© {new Date().getFullYear()} Marwa Al-Sabouni</span>
+        <span>{isArabic ? "العمارة · الكتابة · البحث" : "Architecture · Writing · Research"}</span>
+      </footer>
+    </div>
+  </body>
+</html>
