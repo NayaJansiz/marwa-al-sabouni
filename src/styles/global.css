@@ -20,18 +20,18 @@ button { font: inherit; }
 img { display: block; max-width: 100%; }
 ::selection { background: #d7c2ae; color: var(--ink); }
 .site-shell { min-height: 100vh; overflow: hidden; }
-.site-header { height: 88px; padding: 0 5.2vw; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid var(--line); }
+.site-header { min-height: 88px; padding: 0 5.2vw; display: flex; align-items: center; justify-content: space-between; gap: 24px; border-bottom: 1px solid var(--line); }
 .wordmark { font-family: var(--serif); font-size: 23px; letter-spacing: -.7px; white-space: nowrap; }
 .nav-links { display: flex; align-items: center; gap: clamp(16px, 2.5vw, 38px); font-size: 11px; text-transform: uppercase; letter-spacing: .12em; }
-.nav-links a { color: #55564f; transition: color .2s ease; }
+.nav-links a { color: #55564f; transition: color .2s ease; white-space: nowrap; }
 .nav-links a:hover { color: var(--accent); }
-.language-switch { border: 1px solid var(--line); padding: 9px 13px; font-size: 10px; letter-spacing: .12em; }
+.language-switch { border: 1px solid var(--line); padding: 9px 13px; font-size: 10px; letter-spacing: .12em; white-space: nowrap; }
 .hero { min-height: min(760px, calc(100vh - 88px)); padding: 8vh 5.2vw 7vh; display: grid; grid-template-columns: 1fr 1.12fr; gap: 5vw; align-items: center; }
 .eyebrow { color: var(--accent); text-transform: uppercase; letter-spacing: .22em; font-size: 10px; font-weight: 600; }
 .hero h1 { font-family: var(--serif); font-weight: 400; font-size: clamp(48px, 6.8vw, 104px); line-height: .99; letter-spacing: -.055em; margin: 28px 0; max-width: 650px; }
 .hero-copy { color: var(--muted); font-size: 14px; line-height: 1.9; max-width: 390px; }
 .hero-link { display: inline-flex; gap: 28px; align-items: center; margin-top: 35px; padding-bottom: 10px; border-bottom: 1px solid var(--ink); text-transform: uppercase; font-size: 10px; letter-spacing: .16em; }
-.hero-visual { position: relative; min-height: 540px; height: 66vh; background: #c9c1b4; overflow: hidden; }
+.hero-visual { position: relative; min-height: 540px; height: 66vh; margin: 0; background: #c9c1b4; overflow: hidden; }
 .hero-visual img { width: 100%; height: 100%; object-fit: cover; filter: saturate(.72); }
 .hero-caption { position: absolute; bottom: 20px; left: 22px; color: white; font-size: 10px; letter-spacing: .14em; text-transform: uppercase; text-shadow: 0 1px 8px #0008; }
 .intro-band { padding: 90px 12vw; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); display: grid; grid-template-columns: .7fr 1.3fr; gap: 8vw; }
@@ -53,10 +53,14 @@ img { display: block; max-width: 100%; }
 .editorial-strip p { color: #c1beb6; line-height: 1.9; font-size: 14px; }
 .site-footer { padding: 35px 5.2vw; display: flex; justify-content: space-between; gap: 20px; color: var(--muted); font-size: 10px; letter-spacing: .08em; border-top: 1px solid var(--line); }
 [dir="rtl"] body { font-family: var(--arabic); }
-[dir="rtl"] .hero h1, [dir="rtl"] .intro-band h2, [dir="rtl"] .section-heading h2, [dir="rtl"] .editorial-strip h2 { font-family: var(--arabic); letter-spacing: 0; line-height: 1.35; }
+[dir="rtl"] .site-header { direction: rtl; }
+[dir="rtl"] .nav-links { letter-spacing: 0; }
+[dir="rtl"] .hero h1, [dir="rtl"] .intro-band h2, [dir="rtl"] .section-heading h2, [dir="rtl"] .editorial-strip h2, [dir="rtl"] .section > h1 { font-family: var(--arabic); letter-spacing: 0; line-height: 1.45; }
 [dir="rtl"] .hero-link { flex-direction: row-reverse; }
+[dir="rtl"] .hero-caption { left: auto; right: 22px; }
+[dir="rtl"] .project-meta { flex-direction: row-reverse; }
 @media (max-width: 850px) {
-  .site-header { height: auto; min-height: 76px; flex-wrap: wrap; gap: 14px; padding: 20px 6vw; }
+  .site-header { min-height: 76px; flex-wrap: wrap; padding: 20px 6vw; }
   .nav-links { order: 3; width: 100%; overflow-x: auto; padding: 8px 0 2px; gap: 22px; }
   .hero { grid-template-columns: 1fr; padding: 65px 6vw; gap: 42px; }
   .hero-visual { min-height: 420px; height: 60vh; }
